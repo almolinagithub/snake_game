@@ -1,5 +1,6 @@
 # TODO 0: CREATE THE SNAKE BODY
-import turtle
+
+import time
 from turtle import Turtle, Screen
 
 STILL_PLAYING = True
@@ -10,6 +11,7 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.title(titlestring= "My snake game")
 screen.bgcolor("black")
+screen.tracer(0)
 
 for pos in postions:
     new_segment = Turtle()
@@ -19,12 +21,15 @@ for pos in postions:
     new_segment.goto(pos)
     segments.append(new_segment)
 
+
+
 while STILL_PLAYING:
+    screen.update()
+    time.sleep(0.1)
     for seg in segments:
-        seg.pendown()
-        seg.stamp()
         seg.speed(100)
-        seg.forward(10)
+        seg.forward(20)
+
 
 
 
