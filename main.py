@@ -1,32 +1,32 @@
 # TODO 0: CREATE THE SNAKE BODY
 import turtle
-from turtle import  Turtle, Screen
+from turtle import Turtle, Screen
 
 STILL_PLAYING = True
-segment_body = []
-segment_length = 3
+postions = [(0, 0), (-20, 0), (-40, 0)]
+segments = []
 
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.title(titlestring= "My snake game")
 screen.bgcolor("black")
-segment = Turtle()
 
-segment.penup()
-speed = 1
-x_pos = 0
-y_pos = 0
-segment.setpos(x_pos, y_pos)
+for pos in postions:
+    new_segment = Turtle()
+    new_segment.shape("square")
+    new_segment.color("white")
+    new_segment.penup()
+    new_segment.goto(pos)
+    segments.append(new_segment)
+
+while STILL_PLAYING:
+    for seg in segments:
+        seg.pendown()
+        seg.stamp()
+        seg.speed(100)
+        seg.forward(10)
 
 
-for _ in range(segment_length):
-    segment.clone()
-    segment.shape("square")
-    segment.color("white")
-    segment.setpos(x_pos, y_pos)
-    segment_body.append(segment)
-    print(segment)
-    x_pos -= 20
 
 # TODO 1: MOVE THE SNAKE ALWAYS FORWARD
 
