@@ -4,16 +4,18 @@ import time
 from turtle import Turtle, Screen
 
 STILL_PLAYING = True
-postions = [(0, 0), (-20, 0), (-40, 0)]
+x = 0
+y = 0
+positions = [(x, y), (x - 20, y), (x - 40, y)]
 segments = []
 
 screen = Screen()
 screen.setup(width=600, height=600)
-screen.title(titlestring= "My snake game")
+screen.title(titlestring="My snake game")
 screen.bgcolor("black")
 screen.tracer(0)
 
-for pos in postions:
+for pos in positions:
     new_segment = Turtle()
     new_segment.shape("square")
     new_segment.color("white")
@@ -21,19 +23,21 @@ for pos in postions:
     new_segment.goto(pos)
     segments.append(new_segment)
 
-
+#TODO 1: MOVE THE SNAKE ALWAYS FORWARD
 
 while STILL_PLAYING:
     screen.update()
     time.sleep(0.1)
-    for seg in segments:
-        seg.speed(100)
-        seg.forward(20)
+    for seg in range(len(segments) - 1, 0, -1):
+        new_x = segments[seg - 1].xcor()
+        new_y = segments[seg - 1].ycor()
+        segments[seg].goto(new_x, new_y)
+    segments[0].forward(10)
 
 
 
 
-# TODO 1: MOVE THE SNAKE ALWAYS FORWARD
+
 
 screen.exitonclick()
 
