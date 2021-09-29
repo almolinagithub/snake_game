@@ -2,13 +2,13 @@ from turtle import Turtle
 
 x = 0
 y = 0
-STARTING_POSITIONS = [(x, y), (x - 20, y), (x - 40, y)]
+STARTING_POSITIONS = [(x, y), (x+20, y), (x+40,y)]
 
 
 class Snake:
     def __init__(self):
         self.segments = []
-        self.create_snake
+        self.create_snake()
 
     def create_snake(self):
         for pos in STARTING_POSITIONS:
@@ -16,7 +16,6 @@ class Snake:
             new_segment.shape("square")
             new_segment.color("white")
             new_segment.penup()
-            new_segment.goto(pos)
             self.segments.append(new_segment)
 
     def move_snake(self):
@@ -24,6 +23,14 @@ class Snake:
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
-        self.segments[0].forward(30)
+        self.segments[0].forward(20)
+
+    def turn_right(self):
+        self.segments[0].right(90)
+
+    def turn_left(self):
+        self.segments[0].left(90)
+
+
 
 

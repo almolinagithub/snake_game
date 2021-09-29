@@ -1,6 +1,8 @@
 # TODO 0: CREATE THE SNAKE BODY
 
 import time
+import turtle
+
 from snake import Snake
 from turtle import Turtle, Screen
 
@@ -20,8 +22,12 @@ screen.tracer(0)
 while STILL_PLAYING:
     screen.update()
     time.sleep(0.1)
-    snake.create_snake()
 
+    snake.move_snake()
+    turtle.onkey(snake.turn_right, "d")
+    turtle.onkey(snake.turn_left, "a")
+
+    turtle.listen()
 
 
 
