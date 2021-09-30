@@ -2,14 +2,17 @@
 
 import time
 import turtle
+import food
 
 from snake import Snake
+from food import Apple
 from turtle import Turtle, Screen
 
 
 STILL_PLAYING = True
 
 snake = Snake()
+apple = Apple()
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.title(titlestring="My snake game")
@@ -22,6 +25,7 @@ screen.tracer(0)
 while STILL_PLAYING:
     screen.update()
     time.sleep(0.1)
+    apple.create_apples()
 
     snake.move_snake()
     turtle.onkey(snake.turn_right, "d")
