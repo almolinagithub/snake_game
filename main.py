@@ -25,7 +25,7 @@ screen.tracer(0)
 while STILL_PLAYING:
     screen.update()
     time.sleep(0.1)
-    apple.create_apples()
+
 
     snake.move_snake()
     turtle.onkey(snake.turn_right, "d")
