@@ -1,18 +1,18 @@
 # TODO 0: CREATE THE SNAKE BODY
-
+import food
 import time
 import turtle
-import food
+
 
 from snake import Snake
-from food import Apple
+from food import Food
 from turtle import Turtle, Screen
 
 
 STILL_PLAYING = True
 
 snake = Snake()
-apple = Apple()
+apple = Food()
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.title(titlestring="My snake game")
