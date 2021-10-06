@@ -2,16 +2,18 @@
 import food
 import time
 import turtle
+import random
 
 
 from snake import Snake
-from food import Food
-from turtle import Turtle, Screen
+from food import *
+from turtle import Screen
 
 
 STILL_PLAYING = True
 
 snake = Snake()
+
 apple = Food()
 screen = Screen()
 screen.setup(width=600, height=600)
@@ -22,18 +24,20 @@ screen.tracer(0)
 
 #TODO 1: MOVE THE SNAKE ALWAYS FORWARD
 
+
+
 while STILL_PLAYING:
     screen.update()
     time.sleep(0.1)
-
-
     snake.move_snake()
     turtle.onkey(snake.turn_right, "d")
     turtle.onkey(snake.turn_left, "a")
+    if snake.head.distance(apple) < 15:
+        apple.hideturtle()
+        apple = Food()
+
 
     turtle.listen()
-
-
 
 
 screen.exitonclick()
