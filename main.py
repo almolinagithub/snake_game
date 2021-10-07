@@ -33,8 +33,7 @@ while STILL_PLAYING:
     turtle.onkey(snake.turn_right, "d")
     turtle.onkey(snake.turn_left, "a")
     if snake.head.distance(apple) < 15:
-        apple.hideturtle()
-        apple = Food()
+        apple.refresh()
 
 
     turtle.listen()
