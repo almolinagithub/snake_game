@@ -13,6 +13,7 @@ class Food(Turtle):
         self.color("blue")
         self.refresh()
 
+
     def refresh(self):
         x = randint(-300, 300)
         y = randint(-300, 300)

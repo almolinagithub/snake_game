@@ -3,7 +3,7 @@ import food
 import time
 import turtle
 import random
-
+from point_record import *
 
 from snake import Snake
 from food import *
@@ -13,6 +13,8 @@ from turtle import Screen
 STILL_PLAYING = True
 
 snake = Snake()
+points = Points()
+punti = 0
 
 apple = Food()
 screen = Screen()
@@ -25,6 +27,7 @@ screen.tracer(0)
 #TODO 1: MOVE THE SNAKE ALWAYS FORWARD
 
 
+points.write_points(punti)
 
 while STILL_PLAYING:
     screen.update()
@@ -34,6 +37,11 @@ while STILL_PLAYING:
     turtle.onkey(snake.turn_left, "a")
     if snake.head.distance(apple) < 15:
         apple.refresh()
+
+        punti += 1
+        points.write_points(punti)
+
+
 
 
     turtle.listen()
