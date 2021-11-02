@@ -3,7 +3,10 @@ import food
 import time
 import turtle
 import random
+
+import point_record
 from point_record import *
+from point_record import  *
 
 from snake import Snake
 from food import *
@@ -22,12 +25,12 @@ screen.setup(width=600, height=600)
 screen.title(titlestring="My snake game")
 screen.bgcolor("black")
 screen.tracer(0)
-
+point_writer = point_record.Points()
 
 #TODO 1: MOVE THE SNAKE ALWAYS FORWARD
 
 
-points.write_points(punti)
+
 
 while STILL_PLAYING:
     screen.update()
@@ -37,11 +40,7 @@ while STILL_PLAYING:
     turtle.onkey(snake.turn_left, "a")
     if snake.head.distance(apple) < 15:
         apple.refresh()
-
-        punti += 1
-        points.write_points(punti)
-
-
+        point_writer.write_points()
 
 
     turtle.listen()
