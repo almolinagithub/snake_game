@@ -6,7 +6,8 @@ class PointWriter(Turtle):
         super().__init__()
         self.clear()
 
-    def write_points(self):
+    def write_points(self,pts):
         self.pts = pts
         self.color("white")
-        self.write(6, move=False, align='center', font="Arial", fontaname=12, fonttype="normal")
+        self.hideturtle()
+        self.write(pts, move=False, align='center', font="Arial")

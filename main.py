@@ -2,22 +2,16 @@
 import food
 import time
 import turtle
-import random
-
-import point_record
-from point_record import *
-from point_record import  *
-
+from point_writer import *
 from snake import Snake
 from food import *
 from turtle import Screen
 
-
 STILL_PLAYING = True
 
 snake = Snake()
-points = Points()
-punti = 0
+initial_points = 0
+
 
 apple = Food()
 screen = Screen()
@@ -25,45 +19,27 @@ screen.setup(width=600, height=600)
 screen.title(titlestring="My snake game")
 screen.bgcolor("black")
 screen.tracer(0)
-point_writer = point_record.Points()
+point_writer = PointWriter()
 
-#TODO 1: MOVE THE SNAKE ALWAYS FORWARD
+point_writer.write_points(initial_points)
 
-
-
-
+points = 0
 while STILL_PLAYING:
+
     screen.update()
     time.sleep(0.1)
     snake.move_snake()
     turtle.onkey(snake.turn_right, "d")
     turtle.onkey(snake.turn_left, "a")
+
     if snake.head.distance(apple) < 15:
         apple.refresh()
-        point_writer.write_points()
-
+        points += 1
+        point_writer.clear()
+        point_writer.write_points(points)
+        print(points)
 
     turtle.listen()
 
 
 screen.exitonclick()
-
-
-
-
-# TODO 2: CONTROL THE SNAKE WITH ARROWS
-
-
-
-
-
-# TODO 3: DETECT COLLISION WITH FOOD
-
-# TODO 4: CREATE A SCOREBOARD
-
-# TODO 5: DETECT COLLISION WITH THE WALL
-
-# TODO 6: COLLISION WITH THE TAIL
-
-
-
