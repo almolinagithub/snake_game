@@ -10,6 +10,7 @@ class Snake:
         self.segments = []
         self.create_snake()
         self.head = self.segments[0]
+        self.segment = self.segments[1]
 
     def create_snake(self):
         for pos in STARTING_POSITIONS:
@@ -31,6 +32,9 @@ class Snake:
 
     def turn_left(self):
         self.head.left(90)
+
+    def elongate_snake(self):
+        self.segments.append(self.segment)
 
 
 

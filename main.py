@@ -21,7 +21,7 @@ screen.bgcolor("black")
 screen.tracer(0)
 point_writer = PointWriter()
 
-point_writer.write_points(initial_points)
+
 
 points = 0
 while STILL_PLAYING:
@@ -34,10 +34,16 @@ while STILL_PLAYING:
 
     if snake.head.distance(apple) < 15:
         apple.refresh()
+        snake.elongate_snake()
         points += 1
         point_writer.clear()
-        point_writer.write_points(points)
+        point_writer.increase_score()
         print(points)
+
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        point_writer.clear()
+        point_writer.game_over()
+        STILL_PLAYING = False
 
     turtle.listen()
 
