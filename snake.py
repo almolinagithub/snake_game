@@ -2,7 +2,7 @@ from turtle import Turtle
 
 x = 0
 y = 0
-STARTING_POSITIONS = [(x, y), (x+20, y), (x+40,y)]
+STARTING_POSITIONS = [(x, y), (x+20, y), (x+40,y),(x+60,y),(x+80,y),(x+100,y),(x+110,y),(x+130,y),(x+150,y)]
 
 
 class Snake:
@@ -26,7 +26,7 @@ class Snake:
 
     def turn_right(self):
         self.head.right(90)
-        self.add_segment()
+
 
     def turn_left(self):
         self.head.left(90)
@@ -40,6 +40,8 @@ class Snake:
 
     def elongate_snake(self):
         self.add_segment()
+
+
 
 
 
